@@ -44,29 +44,47 @@ function DemoApp() {
 	}, [previewUrl, cleanup]);
 
 	return (
-		<div style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '800px', margin: 'auto' }}>
+		<div
+			style={{
+				padding: '20px',
+				fontFamily: 'sans-serif',
+				maxWidth: '800px',
+				margin: 'auto',
+				textAlign: 'center',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '20px'
+			}}
+		>
 			<h1>useSnapshot Hook Demo</h1>
 			<p>Test capturing the blue bordered element below.</p>
 
 			<div
 				ref={ref}
-				id='capture-area'
 				style={{
-					border: '3px solid dodgerblue',
 					padding: '20px',
-					margin: '20px 0',
-					background: 'linear-gradient(to right, #e0f7fa, #b2ebf2)',
-					borderRadius: '8px',
-					minHeight: '100px'
+					background: 'linear-gradient(to right, #a3ceff, #3e339c)',
+					borderRadius: '20px',
+					minHeight: '100px',
+					textAlign: 'center',
+					display: 'flex',
+					flexDirection: 'column',
+					gap: '20px',
+					alignItems: 'center',
+					color: '#fff'
 				}}
 			>
 				<h2>Element to Capture</h2>
 				<p>This contains some text and a button.</p>
-				<button onClick={() => alert('Button clicked!')}>Click Me Inside</button>
-				<input type='text' placeholder='Input field' style={{ marginLeft: '10px' }} />
+				<button style={{ color: 'black', background: 'white' }}>Button</button>
+				<input
+					type='text'
+					defaultValue='Input field'
+					style={{ border: '2px solid white', background: 'rgba(255,255,255,0.2)', padding: '10px', borderRadius: '10px', color: '#fff' }}
+				/>
 			</div>
 
-			<div style={{ margin: '20px 0', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+			<div style={{ margin: '20px 0', display: 'flex', justifyContent: 'center', gap: '10px' }}>
 				<button onClick={handleTake} disabled={isLoading}>
 					{isLoading ? 'Taking...' : 'Take & Preview'}
 				</button>
@@ -88,7 +106,14 @@ function DemoApp() {
 					<img
 						src={previewUrl}
 						alt='Snapshot Preview'
-						style={{ border: '1px solid #ccc', maxWidth: '100%', marginTop: '10px', display: 'block' }}
+						style={{
+							border: '1px solid #ccc',
+							padding: '15px',
+							borderRadius: '10px',
+							maxWidth: '100%',
+							marginTop: '10px',
+							display: 'block'
+						}}
 					/>
 					<button
 						onClick={() => {
@@ -101,6 +126,7 @@ function DemoApp() {
 					</button>
 				</div>
 			)}
+			<footer style={{ color: '#919191', fontSize: '0.9rem' }}>Kingsley C. Anyabuike &copy;{new Date().getFullYear()}</footer>
 		</div>
 	);
 }
